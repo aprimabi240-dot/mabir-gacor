@@ -1,100 +1,60 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MABIR GACOR V6 - RAJA LAU</title>
-<style>
-body{margin:0;background:#000;color:#0f0;font-family:monospace;text-align:center;overflow-x:hidden}
-canvas{position:fixed;top:0;left:0;z-index:-1}
-h1{color:#0ff;text-shadow:0 0 20px #0ff;font-size:36px;cursor:pointer}
-.card{background:rgba(20,20,20,0.92);border:2px solid #0ff;border-radius:15px;padding:20px;margin:20px auto;max-width:520px;backdrop-filter:blur(6px)}
-button{background:#ff0055;color:white;border:none;padding:12px;border-radius:10px;font-weight:bold;cursor:pointer;width:100%;margin-top:8px}
-input{width:92%;padding:12px;border-radius:8px;border:1px solid #0f0;margin:5px;background:#111;color:white}
-#jam{color:#ffd700;font-size:20px;font-weight:bold}
-#gameArea{height:250px;background:rgba(0,20,40,0.8);border:2px solid #0ff;border-radius:15px;display:flex;align-items:center;justify-content:center;flex-direction:column;margin:15px 0}
-#tapBtn{width:140px;height:140px;border-radius:50%;background:radial-gradient(#ff0055,#ffaa00);border:4px solid white;font-size:18px;color:white;box-shadow:0 0 30px #ff0055}
-.disko{animation:disco 0.2s infinite}@keyframes disco{0%{filter:hue-rotate(0)}100%{filter:hue-rotate(360deg)}}
-.qris{width:180px;height:180px;background:white;color:black;display:flex;align-items:center;justify-content:center;border-radius:10px;margin:10px auto;font-weight:bold}
-.rank1{background:linear-gradient(90deg,gold,#ffeb3b);color:black;padding:8px;border-radius:8px;margin:5px;font-weight:bold}
-.rank2{background:linear-gradient(90deg,silver,#e0e0e0);color:black;padding:8px;border-radius:8px;margin:5px;font-weight:bold}
-.rank3{background:linear-gradient(90deg,#cd7f32,#ff9800);color:white;padding:8px;border-radius:8px;margin:5px;font-weight:bold}
-</style>
-</head>
-<body>
-<canvas id="matrix"></canvas>
-<h1 onclick="modeJoget()">⚡ MABIR GACOR ⚡</h1>
-<div id="jam">00:00:00 WIB</div>
-<p>LAU MECIHO - SIANTAR | Warga Lau: <span id="visit">0</span></p>
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MABIR GACOR ULTIMATE - @prii.366</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#000;color:#0f0;font-family:monospace;text-align:center;overflow-x:hidden}canvas{position:fixed;top:0;left:0;z-index:-1}h1{color:#0ff;text-shadow:0 0 25px #0ff;font-size:26px;margin:12px;cursor:pointer}.card{background:rgba(15,15,20,0.96);border:2px solid #0ff;border-radius:16px;padding:14px;margin:12px auto;max-width:560px;box-shadow:0 0 15px rgba(0,255,255,.3)}button{background:#ff0055;color:#fff;border:none;padding:11px;border-radius:10px;width:100%;margin-top:8px;font-weight:bold;cursor:pointer}button:active{transform:scale(0.96)}input{width:94%;padding:10px;border-radius:8px;background:#0a0a0a;color:#fff;border:1px solid #0f0;margin:5px}.yt{width:100%;height:250px;border-radius:12px;border:3px solid #0ff}#tapBtn{width:145px;height:145px;border-radius:50%;background:radial-gradient(circle,#ff0055,#ffaa00);border:4px solid #fff;color:#fff;font-size:20px;font-weight:bold;box-shadow:0 0 20px #ff0055}#gameArea{height:270px;border:2px dashed #0ff;border-radius:15px;display:flex;align-items:center;justify-content:center;flex-direction:column;background:rgba(0,0,0,0.5)}.disco{animation:d 0.2s infinite}@keyframes d{to{filter:hue-rotate(360deg)}}.confetti{position:fixed;width:10px;height:10px;top:-10px;animation:f 2s linear forwards}@keyframes f{to{transform:translateY(100vh) rotate(720deg)}}</style></head><body><canvas id="matrix"></canvas>
+<h1 onclick="document.body.classList.toggle('disco')">⚡ MABIR GACOR ULTIMATE ⚡</h1>
+<div id="jam" style="color:#ffd700;font-weight:bold;font-size:18px"></div><div style="color:#0ff">👥 WARGA ONLINE: <span id="cnt">1,347</span></div>
 
-<div class="card"><h3>🎸 LAGU KARO GACOR</h3><audio controls autoplay loop style="width:100%"><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio><p style="font-size:11px">Tap judul buat MODE JOGET DISKO!</p></div>
-
-<div class="card" style="border-color:#ffd700"><h3>🗣️ PANTUN MABIR</h3><div id="pantun" style="color:#ffd700;font-size:18px;min-height:30px"></div><button onclick="gantiPantun()">GANTI PANTUN 🔥</button></div>
-
-<div class="card"><h3>💿 REQUEST LAGU</h3><input id="nama" placeholder="Nama aja"><input id="lagu" placeholder="Request lagu aja"><button onclick="reqLagu()" style="background:#25D366">KIRIM KE WA GUA 🚀</button></div>
-
-<div class="card" style="border-color:#ff0055">
-<h3>🎮 TAP GACOR CHALLENGE</h3>
-<div id="scoreDisplay" style="font-size:32px;color:#0ff">0 TAP</div>
-<div id="timeDisplay" style="color:#ffd700">10.0s</div>
-<div id="gameArea"><button id="tapBtn" onclick="tap()">TAP AKU!</button><div id="gelar" style="margin-top:12px;color:#ffd700;font-weight:bold;font-size:16px"></div></div>
-<button onclick="mulaiGame()" id="startBtn" style="background:#0ff;color:black">MULAI GAME</button>
-
-<h3 style="margin-top:20px;color:#ffd700">🏆 LEADERBOARD TOP 3 RAJA LAU</h3>
-<div id="leaderboard" style="text-align:left">Belum ada raja, jadilah yang pertama!</div>
-<button onclick="resetBoard()" style="background:#333;font-size:11px;margin-top:10px">Reset Leaderboard (Admin)</button>
+<!-- PROMO WEB DEV FIX -->
+<div class="card" style="border:3px solid #25D366;background:linear-gradient(135deg,#111,#0a2a0a)">
+<h3 style="color:#25D366">🚀 BUTUH WEB GACOR KAYAK GINI?</h3>
+<p style="color:#fff;margin:5px">Jasa Web Dev - Game, Musik, QRIS, 1 Hari Jadi!</p>
+<a href="https://wa.me/6282275583894?text=Halo%20Bang%20Web%20Dev!%20Mau%20bikin%20web%20kayak%20MABIR%20GACOR%20dong!%20Dari%20web%20lu" target="_blank" style="display:block;background:#25D366;color:#fff;padding:16px;border-radius:12px;text-decoration:none;font-weight:bold;font-size:20px;margin:10px 0">💬 CHAT WA WEB DEV</a>
+<div style="display:flex;gap:8px">
+<a href="https://instagram.com/prii.366" target="_blank" style="flex:1;background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);color:#fff;padding:12px;border-radius:10px;text-decoration:none;font-weight:bold">📸 @prii.366</a>
+<a href="https://wa.me/6282275583894" target="_blank" style="flex:1;background:#111;border:1px solid #25D366;color:#25D366;padding:12px;border-radius:10px;text-decoration:none;font-weight:bold">📲 WA</a>
+</div>
 </div>
 
-<div class="card"><h3>💬 BACOT MABIR (LIVE)</h3><div id="chatBox" style="height:150px;overflow-y:auto;background:#000;text-align:left;padding:10px;border-radius:10px"></div><input id="namaChat" placeholder="Nama aja"><input id="pesanChat" placeholder="Bacot apa?"><button onclick="kirimChat()">KIRIM BACOT</button></div>
+<!-- 5 LAGU ASLI LU -->
+<div class="card" style="border-color:#ff0055"><h3>🎸 5 LAGU KARO REQUEST LU</h3>
+<iframe id="yt" class="yt" src="https://www.youtube.com/embed/uy1bMlRcDBI" allowfullscreen></iframe>
+<div id="jL" style="color:#ffd700;margin:10px;font-weight:bold;font-size:15px">▶️ 1. Lagu Request 1</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+<button onclick="g(0)" style="background:#111;border:1px solid #0ff">1️⃣ Lagu 1</button>
+<button onclick="g(1)" style="background:#111;border:1px solid #0ff">2️⃣ Lagu 2</button>
+<button onclick="g(2)" style="background:#111;border:1px solid #0ff">3️⃣ Lagu 3</button>
+<button onclick="g(3)" style="background:#111;border:1px solid #0ff">4️⃣ Lagu 4</button>
+<button onclick="g(4)" style="grid-column:span 2;background:#ff0055;border:2px solid #fff">5️⃣ Bonus Gacor 🔥</button>
+</div></div>
 
-<div class="card" style="border:1px dashed #ffd700"><h3>💛 SUPPORT LAU MECIHO</h3><div class="qris">FOTO QRIS KAU</div><a href="https://saweria.co/namakau" style="color:#ffd700">Saweria.co/namakau</a></div>
-<p style="margin:30px">© 2026 Lau Meciho - Mejuah-juah!</p>
+<div class="card" style="border-color:#ffd700"><h3>🗣️ PANTUN MABIR</h3><div id="pantun" style="color:#ffd700;min-height:36px;font-style:italic"></div><button onclick="pb()" style="background:#111;border:1px solid #ffd700">🎲 GANTI PANTUN</button></div>
+<div class="card"><h3>💿 REQUEST LAGU AJA</h3><input id="nR" placeholder="Nama aja"><input id="lR" placeholder="Request lagu aja"><button onclick="rWA()" style="background:#25D366">🚀 KIRIM KE WA WEB DEV</button></div>
+<div class="card" style="border-color:#ff0055"><h3>🎮 TAP CHALLENGE - MODE DISCO</h3><div id="sc" style="font-size:34px;color:#0ff;font-weight:bold">0 TAP</div><div id="tm" style="color:#ffd700;font-size:20px">10.0s - Tap judul = Disco!</div><div id="gameArea"><button id="tapBtn" onclick="tG()">TAP!</button><div id="gl" style="color:#ffd700;font-weight:bold;margin-top:10px;font-size:19px"></div></div><button id="bS" onclick="sT()" style="background:#0ff;color:#000;font-size:19px">🔥 MULAI GACOR</button><button id="bSh" onclick="sh()" style="display:none;background:#25D366">📲 PAMER SKOR KE WA</button><h4 style="color:#ffd700;margin:10px 0 5px">🏆 TOP 3 RAJA MABIR</h4><div id="bd" style="text-align:left"></div></div>
+<div class="card"><h3>💬 BACOT LIVE</h3><div id="cB" style="height:135px;overflow-y:auto;background:#000;text-align:left;padding:8px;border-radius:8px;border:1px solid #0ff"></div><input id="nC" placeholder="Nama aja"><input id="pC" placeholder="Bacot apa?"><button onclick="kC()" style="background:#0ff;color:#000">KIRIM BACOT</button></div>
+
+<!-- QR SAMAR 0822 ●●● 3894 TAPI TETEP SCAN -->
+<div class="card" style="border:3px solid #00A8FF;box-shadow:0 0 20px #00A8FF"><h3 style="color:#00A8FF">💙 SUPPORT - SCAN QR DANA</h3><p style="font-size:24px;font-weight:bold;color:#fff;margin:5px">0822 ●●● 3894</p><img src="dana_qr.jpg" alt="QR DANA" style="width:285px;border-radius:18px;border:5px solid white;background:white;display:block;margin:0 auto"><br><a href="https://link.dana.id/qr/3q6q3e2f" target="_blank" style="display:block;background:#00A8FF;color:#fff;padding:15px;border-radius:12px;text-decoration:none;font-weight:bold;margin-top:10px;font-size:17px">💸 KLIK BAYAR DANA LANGSUNG</a><p style="font-size:11px;color:#aaa">QR asli 2062x4466 udah tajem - bisa di-scan walau nomor di-blur</p></div>
+<p style="color:#666;font-size:12px">© 2026 @prii.366 | WA 0822-7558-3894 | Mejuah-juah!</p>
 
 <script>
-// MATRIX BG
-const c=document.getElementById('matrix'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
-const chars="01MABIRGACOR";const drops=Array(Math.floor(c.width/14)).fill(1);
-setInterval(()=>{x.fillStyle="rgba(0,0,0,0.05)";x.fillRect(0,0,c.width,c.height);x.fillStyle="#0f0";x.font="14px monospace";drops.forEach((y,i)=>{x.fillText(chars[Math.floor(Math.random()*chars.length)],i*14,y*14);if(y*14>c.height&&Math.random()>0.975)drops[i]=0;drops[i]++})},50);
-setInterval(()=>{document.getElementById('jam').innerText=new Date().toLocaleTimeString('id-ID',{timeZone:'Asia/Jakarta'})+' WIB'},1000);
-let v=parseInt(localStorage.getItem('visit')||0)+1;localStorage.setItem('visit',v);document.getElementById('visit').innerText=v;
-const pantuns=["Mejuah-juah ula lupa ngopi, request lagu jangan lupa sawer bestie!","Erdemu bayu ke Lau Debuk, mabar sampe pagi jangan ngantuk!","Buah nangka buah kelapa, kalah main jangan ngamuk ya!","Tap tap tap makin gacor, yang gak tap auto kendor!"];
-function gantiPantun(){document.getElementById('pantun').innerText=pantuns[Math.floor(Math.random()*pantuns.length)]}gantiPantun();
-function reqLagu(){let n=document.getElementById('nama').value||'Anonim';let l=document.getElementById('lagu').value;if(!l)return alert('Isi lagu dulu Kang!');window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(`Mejuah-juah Bang! Gua ${n} request lagu ${l} di MABIR GACOR 🔥`)}`,'_blank')}
-
-// GAME + LEADERBOARD
-let score=0,time=10,timer=null,main=false;
-let board=JSON.parse(localStorage.getItem('mabir_board')||'[]');
-function tampilBoard(){
- let box=document.getElementById('leaderboard');
- if(board.length==0){box.innerHTML="Belum ada raja, jadilah yang pertama!";return}
- let html=board.slice(0,3).map((b,i)=>{
-   let cls=i==0?'rank1':i==1?'rank2':'rank3';
-   let icon=i==0?'🥇':i==1?'🥈':'🥉';
-   return `<div class="${cls}">${icon} #${i+1} ${b.nama} - ${b.skor} TAP - ${b.gelar}</div>`
- }).join('');
- box.innerHTML=html;
-}
-tampilBoard();
-function mulaiGame(){score=0;time=10;main=true;document.getElementById('scoreDisplay').innerText='0 TAP';document.getElementById('gelar').innerText='';document.getElementById('startBtn').innerText='SEDANG MAIN...';clearInterval(timer);timer=setInterval(()=>{time-=0.1;document.getElementById('timeDisplay').innerText=time.toFixed(1)+'s';if(time<=0){clearInterval(timer);main=false;selesai()}},100)}
-function tap(){if(!main)return;score++;document.getElementById('scoreDisplay').innerText=score+' TAP'}
-function selesai(){
- let gelar=score<20?'😴💤 WEBERS NGANTUKAN 💤😴':score<50?'🌱✨ PEMULA ✨🌱':score<80?'⚔️🔥 KESATRIA 🔥⚔️':'👑💎 RAJA DARI SEGALA RAJA 💎👑';
- document.getElementById('gelar').innerText=gelar+` (${score})`;
- document.getElementById('startBtn').innerText='MAIN LAGI';
- if(score>=20){
-   let nama=prompt(`GACOR KANG! Kau dapet ${score} TAP - ${gelar}\nMasuk leaderboard! Tulis nama kau:`)||'Anonim';
-   board.push({nama:nama.substring(0,12),skor:score,gelar});
-   board.sort((a,b)=>b.skor-a.skor);
-   board=board.slice(0,10);
-   localStorage.setItem('mabir_board',JSON.stringify(board));
-   tampilBoard();
- }
-}
-function resetBoard(){if(confirm('Reset leaderboard?')){board=[];localStorage.removeItem('mabir_board');tampilBoard()}}
-
+// MATRIX
+const canvas=document.getElementById('matrix'),ctx=canvas.getContext('2d');canvas.width=innerWidth;canvas.height=innerHeight;const ch="01MABIRPRII366GACOR⚡";const cols=Math.floor(canvas.width/14),drops=Array(cols).fill(1);setInterval(()=>{ctx.fillStyle="rgba(0,0,0,0.05)";ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle="#0f0";ctx.font="14px monospace";drops.forEach((y,i)=>{ctx.fillText(ch[Math.floor(Math.random()*ch.length)],i*14,y*14);if(y*14>canvas.height&&Math.random()>0.975)drops[i]=0;drops[i]++})},50);
+// JAM WIB
+setInterval(()=>{document.getElementById('jam').innerText=new Date().toLocaleTimeString('id-ID',{timeZone:'Asia/Jakarta',hour12:false})+" WIB - "+new Date().toLocaleDateString('id-ID')},1000);
+let online=1347+Math.floor(Math.random()*50);setInterval(()=>{online+=Math.floor(Math.random()*3)-1;document.getElementById('cnt').innerText=online.toLocaleString('id-ID')},3000);
+// 5 LAGU - 4 ASLI LU + 1 BONUS
+const v=["uy1bMlRcDBI","TxVsKKDz9bw","nwlSeuPPQw4","wMCD-H-Ee3c","U9DyNe0u2vE"],jl=["1. Request 1 - Karo","2. Request 2 - Karo","3. Request 3 - Karo","4. Request 4 - Karo","5. Bonus - Paling Gacor 🔥"];
+function g(i){document.getElementById('yt').src="https://www.youtube.com/embed/"+v[i]+"?autoplay=1";document.getElementById('jL').innerText="▶️ "+jl[i];if(navigator.vibrate)navigator.vibrate(50)}g(0);
+// PANTUN
+const ps=["Mejuah-juah ula lupa ngopi, request lagu jangan lupa sawer!","Erdemu bayu ke Lau Debuk, mabar sampe pagi!","Beli manggis di Pajak Lau, mabar terus sampe gacur!","Anak Lau nongkrong di Lau Debuk, tap-tap terus sampe masuk top 3!"];function pb(){document.getElementById('pantun').innerText=ps[Math.floor(Math.random()*ps.length)]}pb();
+// REQUEST
+function rWA(){let n=document.getElementById('nR').value||"Warga Lau";let l=document.getElementById('lR').value;if(!l)return alert("Isi lagu dulu Kang!");window.open(`https://wa.me/6282275583894?text=${encodeURIComponent("Halo Bang @prii.366! "+n+" request lagu: "+l+" - dari web MABIR GACOR")}`,"_blank")}
+// TAP CHALLENGE ULTIMATE
+let skor=0,w=10,t=null,m=false,lt=[];let lb=JSON.parse(localStorage.getItem('mabir_board_final')||'[]');
+function shB(){document.getElementById('bd').innerHTML=lb.length?lb.slice(0,3).map((b,i)=>`<div style="background:${i==0?'gold':i==1?'#C0C0C0':'#CD7F32'};color:${i<2?'#000':'#fff'};padding:9px;border-radius:8px;margin:5px 0;font-weight:bold">${i==0?'🥇':i==1?'🥈':'🥉'} ${b.n} - ${b.s} TAP</div>`).join(''):'<div style="color:#666">Belum ada Raja, jadilah pertama!</div>'}shB();
+function sT(){skor=0;w=10;m=true;lt=[];document.getElementById('sc').innerText="0 TAP";document.getElementById('gl').innerText="";document.getElementById('bS').innerText="LAGI MAIN...";document.getElementById('bSh').style.display="none";clearInterval(t);t=setInterval(()=>{w-=0.1;document.getElementById('tm').innerText=w.toFixed(1)+"s - Tap judul = Disco!";if(w<=0){clearInterval(t);m=false;fin()}},100)}
+function tG(){if(!m)return;let now=Date.now();lt.push(now);lt=lt.filter(x=>now-x<900);if(lt.length>12){skor=Math.max(0,skor-5);document.getElementById('sc').innerText=skor+" TAP - JANGAN CURANG!";if(navigator.vibrate)navigator.vibrate([100,50,100]);return}skor++;document.getElementById('sc').innerText=skor+" TAP";if(navigator.vibrate)navigator.vibrate(20)}
+function fin(){let gelar=skor<20?"😴 WEBERS NGANTUKAN":skor<40?"🌱 PEMULA MABIR":skor<60?"⚔️ KESATRIA LAU":skor<80?"🔥 MASTER TAP":"👑 RAJA DARI SEGALA RAJA";document.getElementById('gl').innerText=gelar;document.getElementById('bS').innerText="🔥 MAIN LAGI";if(skor>=80){for(let i=0;i<80;i++){let c=document.createElement('div');c.className='confetti';c.style.left=Math.random()*100+'vw';c.style.background=`hsl(${Math.random()*360},100%,50%)`;c.style.animationDuration=(Math.random()*0.8+1.2)+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),2500)}}if(skor>=5){let nm=prompt(`GILA! ${skor} TAP!\nGelar lu: ${gelar}\n\nMasukin nama biar masuk TOP 3:`)||"Warga Lau";lb.push({n:nm.substring(0,14),s:skor});lb.sort((a,b)=>b.s-a.s);lb=lb.slice(0,3);localStorage.setItem('mabir_board_final',JSON.stringify(lb));shB();window._s=skor;window._g=gelar;document.getElementById('bSh').style.display="block"}if(navigator.vibrate)navigator.vibrate([100,50,100,50,200])}
+function sh(){window.open(`https://wa.me/?text=${encodeURIComponent(`GUA DAPET ${window._s} TAP jadi ${window._g} di MABIR GACOR @prii.366! Coba kalahin gua: ${location.href}`)}`,"_blank")}
 // CHAT
-let chats=JSON.parse(localStorage.getItem('mabir_chat')||'[]');function tampilChat(){document.getElementById('chatBox').innerHTML=chats.map(c=>`<div><b>${c.n}:</b> ${c.p}</div>`).join('')}function kirimChat(){let n=document.getElementById('namaChat').value||'Anonim';let p=document.getElementById('pesanChat').value;if(!p)return;chats.push({n,p});if(chats.length>20)chats.shift();localStorage.setItem('mabir_chat',JSON.stringify(chats));document.getElementById('pesanChat').value='';tampilChat()}tampilChat();
-function modeJoget(){document.body.classList.toggle('disko');setTimeout(()=>document.body.classList.remove('disko'),3000)}
-</script>
-</body>
-</html>
+let chs=JSON.parse(localStorage.getItem('mabir_chat_final')||'[]');function rC(){document.getElementById('cB').innerHTML=chs.slice(-15).map(c=>`<div style="margin:4px 0"><b style="color:#0ff">${c.n}:</b> <span style="color:#fff">${c.p}</span></div>`).join('');document.getElementById('cB').scrollTop=9999}function kC(){let n=document.getElementById('nC').value||"Anonim";let p=document.getElementById('pC').value;if(!p)return;chs.push({n:n.substring(0,12),p:p.substring(0,90)});if(chs.length>30)chs.shift();localStorage.setItem('mabir_chat_final',JSON.stringify(chs));document.getElementById('pC').value="";rC()}rC();
+</script></body></html>
