@@ -1,1 +1,62 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LAU MECIHO - MABIR GACOR</title><style>body{background:#000;color:#0f0;font-family:monospace;text-align:center;margin:0}h1{color:#0ff;text-shadow:0 0 15px #0ff;font-size:38px;margin-top:30px}.box{border:2px solid #0f0;padding:20px;border-radius:15px;box-shadow:0 0 15px #0f0;margin:20px}a{color:#f0f;font-weight:bold;text-decoration:none;border:1px solid #f0f;padding:6px 14px;border-radius:20px}#musicWidget{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#111;border:1px solid #0f0;padding:10px 15px;border-radius:10px}</style></head><body><h1>⚡ MABIR GACOR ⚡</h1><h2>LAU MECIHO</h2><div class="box"><p>Web gacor abiez pertama gua!</p><p>Jam 2 pagi masih ngoding</p><br><a href="https://instagram.com">IG Gua</a> | <a href="https://wa.me/62xxxx">WA Gua</a><p style="margin-top:20px;color:#0ff" id="jam"></p></div><p style="margin-top:30px">© 2026 Lau Meciho</p><div id="musicWidget"><button id="musicBtn" style="background:#FFD700;border:none;padding:8px 15px;border-radius:5px;font-weight:bold">▶️ PLAY LAGU KARO</button><div style="font-size:11px;margin-top:5px">ULA KU ULIHI NDU - NARTA SIREGAR</div><audio id="audioKaro" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio></div><script>setInterval(()=>{document.getElementById('jam').innerText=new Date().toLocaleTimeString()},1000);document.getElementById('musicBtn').onclick=()=>{let a=document.getElementById('audioKaro');if(a.paused){a.play();event.target.innerText='⏸️ PAUSE'}else{a.pause();event.target.innerText='▶️ PLAY LAGU KARO'}}</script></body></html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mabir Gacor Siantar</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);min-height:100vh;display:flex;align-items:center;justify-content:center;color:white;padding:20px}
+.card{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:24px;padding:30px;max-width:500px;width:100%;text-align:center}
+h1{font-size:26px;margin-bottom:8px}
+.subtitle{opacity:0.7;margin-bottom:20px;font-size:13px}
+.pantun-box{background:rgba(0,0,0,0.3);border-radius:16px;padding:25px;min-height:150px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;border-left:4px solid #ff6a00}
+#pantun{font-size:17px;line-height:1.6;font-style:italic}
+.btn{background:linear-gradient(90deg,#ff6a00,#ee0979);border:none;padding:14px 30px;border-radius:50px;color:white;font-weight:bold;font-size:16px;cursor:pointer;width:100%}
+.btn:active{transform:scale(0.95)}
+.badge{display:inline-block;background:#FFD700;color:#000;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:bold;margin-top:15px}
+.footer{margin-top:15px;opacity:0.5;font-size:11px}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>🎤 Mabir Gacor Siantar 🎤</h1>
+<p class="subtitle">Karo - Indo - Matigan Anti Gedorrr</p>
+<div class="pantun-box"><p id="pantun">Klik GACOR KAN di bawah!</p></div>
+<button class="btn" onclick="gacor()">🔥 GACOR KAN 🔥</button>
+<div id="badge-area"></div>
+<p class="footer">© 2026 Anak Siantar - Lau Meciho</p>
+</div>
+<script>
+const pantuns = [
+"jangan menulis cinta di atas kaca, menulis lah di atas meja. jangan menangis karena cinta, menangis lah karena dosa - from matador (matigan anti gedorr)",
+"laki laki tidak akan pernah menangis kecuali saat ibu nya tiada",
+"kreta revo, kreta king, man kai nande karo, adi lit nande iting",
+"dalan dalan ku penatapen, singgah aku i bandar baru, lupaken ndu me mantan, nca darami ndu me si mabaruu",
+"Mejuah-juah, ula lupa ngopi, kalo gak mabar hati terasa sepi!",
+"Erdemu bayu ke Lau Debuk-debuk, mabar sampe pagi jangan sampe ngantuk!",
+"Buah nangka buah kelapa, kalah main jangan ngamuk ya!",
+"Ke Pajak Horas beli duku, anak Siantar mabarnya selalu gacor buku!",
+"Pergi ke Berastagi beli jeruk, yang gak ikut mabar auto buruk!",
+"Gitar Karo bunyinya merdu, yang jago mabar pasti ditunggu!",
+"Ke Siantar beli rujak, yang AFK auto jadi rujak!",
+"Beli cimol di Pematangsiantar, yang toxic mending bubar!",
+"Jalan-jalan ke Kabanjahe, yang jomblo mabarnya sampe sore!",
+"Nongkrong di warung kopi Sidikalang, yang kalah jangan langsung ngilang!",
+"Cintaku padamu seperti sinyal Telkomsel di Siantar, kadang ilang kadang lancar!",
+"Kam kap kalak Karo sejati, mabar sampe lupa mandi!",
+"Beli beras ke Pajak Parluasan, yang nolep mabarnya jadi alasan!",
+"Manisnya gula aren Berastagi, manisnya lagi senyummu pas mabar pagi!",
+"Ula kam lupa makan BPK, kalo gak mabar hidup terasa hampa!",
+"Ke Danau Toba naik perahu, yang sombong pas mabar auto gak laku!",
+"Makan cipera di rumah nini, yang jago mabar pasti jadi idola kini!",
+"Pergi merantau ke Jakarta, pulang ke Siantar tetap mabar gacor jaya!"
+];
+function gacor(){
+const r = pantuns[Math.floor(Math.random()*pantuns.length)];
+document.getElementById('pantun').innerText = r;
+document.getElementById('badge-area').innerHTML = r.includes('matador') ? '<span class="badge">⭐ MATADOR - MATIGAN ANTI GEDORR ⭐</span>' : r.includes('ibu') ? '<span class="badge">❤️ IBU ❤️</span>' : '';
+}
+</script>
+</body>
+</html>
