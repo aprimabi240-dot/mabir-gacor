@@ -1,97 +1,100 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mabir Gacor - Karo Harmony Music</title>
+<title>MABIR GACOR V6 - RAJA LAU</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#0f0a1e;color:#fff;font-family:system-ui,sans-serif;padding:16px}
-.header{text-align:center;padding:35px 0 20px}
-.header h1{font-size:2.6rem;font-weight:900;text-shadow:0 0 20px #ff006a}
-.header p{color:#888;margin-top:8px;letter-spacing:2px;font-size:0.8rem}
-.card{background:linear-gradient(145deg,#2a2340,#1a1630);border:1px solid #3a3350;border-radius:22px;padding:22px;margin-bottom:18px}
-.card h2{text-align:center;margin-bottom:16px;letter-spacing:1px}
-.quote-box{background:#1e1a33;border-left:4px solid #ff6a00;border-radius:12px;padding:20px;font-style:italic;text-align:center;color:#e0d8ff;line-height:1.6}
-.btn-play{display:block;width:100%;padding:16px;background:#fff;color:#000;border-radius:100px;font-weight:900;text-align:center;text-decoration:none;font-size:0.95rem;margin-bottom:12px}
-.btn-sub{display:block;width:100%;padding:14px;background:#ff0000;color:#fff;border-radius:100px;font-weight:800;text-align:center;text-decoration:none}
-.song{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid #2a2545;text-decoration:none;color:#fff}
-.song span:last-child{color:#ff6a00}
-.badge{padding:5px 14px;border-radius:20px;font-size:0.8rem;background:#0f2a1e;color:#00ff88;border:1px solid #00ff88}
-.spot{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
-.footer{text-align:center;color:#444;font-size:0.75rem;margin:24px 0}
+body{margin:0;background:#000;color:#0f0;font-family:monospace;text-align:center;overflow-x:hidden}
+canvas{position:fixed;top:0;left:0;z-index:-1}
+h1{color:#0ff;text-shadow:0 0 20px #0ff;font-size:36px;cursor:pointer}
+.card{background:rgba(20,20,20,0.92);border:2px solid #0ff;border-radius:15px;padding:20px;margin:20px auto;max-width:520px;backdrop-filter:blur(6px)}
+button{background:#ff0055;color:white;border:none;padding:12px;border-radius:10px;font-weight:bold;cursor:pointer;width:100%;margin-top:8px}
+input{width:92%;padding:12px;border-radius:8px;border:1px solid #0f0;margin:5px;background:#111;color:white}
+#jam{color:#ffd700;font-size:20px;font-weight:bold}
+#gameArea{height:250px;background:rgba(0,20,40,0.8);border:2px solid #0ff;border-radius:15px;display:flex;align-items:center;justify-content:center;flex-direction:column;margin:15px 0}
+#tapBtn{width:140px;height:140px;border-radius:50%;background:radial-gradient(#ff0055,#ffaa00);border:4px solid white;font-size:18px;color:white;box-shadow:0 0 30px #ff0055}
+.disko{animation:disco 0.2s infinite}@keyframes disco{0%{filter:hue-rotate(0)}100%{filter:hue-rotate(360deg)}}
+.qris{width:180px;height:180px;background:white;color:black;display:flex;align-items:center;justify-content:center;border-radius:10px;margin:10px auto;font-weight:bold}
+.rank1{background:linear-gradient(90deg,gold,#ffeb3b);color:black;padding:8px;border-radius:8px;margin:5px;font-weight:bold}
+.rank2{background:linear-gradient(90deg,silver,#e0e0e0);color:black;padding:8px;border-radius:8px;margin:5px;font-weight:bold}
+.rank3{background:linear-gradient(90deg,#cd7f32,#ff9800);color:white;padding:8px;border-radius:8px;margin:5px;font-weight:bold}
 </style>
 </head>
 <body>
-<div class="header">
-<h1>MABIR GACOR</h1>
-<p>OFFICIAL KARO HARMONY MUSIC</p>
-</div>
-<div class="card">
-<h2>🎵 LAGU UTAMA</h2>
-<a class="btn-play" href="https://youtu.be/pjTbUXYug-U" target="_blank">▶️ ula aku ulihi ndu - YUDA MELIALA</a>
-<a class="btn-sub" href="https://www.youtube.com/@karo-harmony-music" target="_blank">SUBSCRIBE KARO HARMONY MUSIC</a>
-</div>
-<div class="card">
-<h2>🔥 LIST LAGU GACOR</h2>
-<a class="song" href="https://youtu.be/uy1bMlRcDBI" target="_blank"><span>1. Lagu Karo Gacor #1</span><span>PLAY ▶️</span></a>
-<a class="song" href="https://youtu.be/TxVsKKDz9bw" target="_blank"><span>2. Lagu Karo Gacor #2</span><span>PLAY ▶️</span></a>
-<a class="song" href="https://youtu.be/nwlSeuPPQw4" target="_blank"><span>3. Lagu Karo Gacor #3</span><span>PLAY ▶️</span></a>
-<a class="song" href="https://youtu.be/wMCD-H-Ee3c" target="_blank"><span>4. Lagu Karo Gacor #4</span><span>PLAY ▶️</span></a>
-</div>
-<div class="card">
-<h2>QUOTE MABIR</h2>
-<div class="quote-box">"Gitar Karo bunyinya merdu,<br>yang jago mabar pasti ditunggu!"</div>
-<p style="text-align:center;color:#ffcc00;margin-top:14px;font-style:italic">Mejuah-juah! Ula lupa ngopi, kalo gak mabar hati sepi!</p>
-</div>
-<div class="card">
-<h2>📍 SPOT MABIR</h2>
-<div class="spot"><span>Lau Meciho</span><span class="badge">RAME • GACOR</span></div>
-</div>
-<div class="footer">© 2026 Mabir Gacor - Lau Meciho<br>#MabirGacor #KaroHarmonyMusic</div>
-<div class="lau-meciho" id="efek-meciho"></div>
+<canvas id="matrix"></canvas>
+<h1 onclick="modeJoget()">⚡ MABIR GACOR ⚡</h1>
+<div id="jam">00:00:00 WIB</div>
+<p>LAU MECIHO - SIANTAR | Warga Lau: <span id="visit">0</span></p>
 
-<div class="card" style="border:2px solid #ff6a00;">
-<h2>📩 REQUEST LAGU MABIR</h2>
-<input id="nama" placeholder="Nama anda..." style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:none;">
-<input id="lagu" placeholder="Request lagu bebas..." style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:none;">
-<button onclick="kirimRequest()" style="width:100%;padding:12px;background:#ff6a00;color:white;border:none;border-radius:8px;font-weight:bold;">KIRIM REQUEST 🔥</button>
-<div id="list-request" style="margin-top:15px;"></div>
+<div class="card"><h3>🎸 LAGU KARO GACOR</h3><audio controls autoplay loop style="width:100%"><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio><p style="font-size:11px">Tap judul buat MODE JOGET DISKO!</p></div>
+
+<div class="card" style="border-color:#ffd700"><h3>🗣️ PANTUN MABIR</h3><div id="pantun" style="color:#ffd700;font-size:18px;min-height:30px"></div><button onclick="gantiPantun()">GANTI PANTUN 🔥</button></div>
+
+<div class="card"><h3>💿 REQUEST LAGU</h3><input id="nama" placeholder="Nama aja"><input id="lagu" placeholder="Request lagu aja"><button onclick="reqLagu()" style="background:#25D366">KIRIM KE WA GUA 🚀</button></div>
+
+<div class="card" style="border-color:#ff0055">
+<h3>🎮 TAP GACOR CHALLENGE</h3>
+<div id="scoreDisplay" style="font-size:32px;color:#0ff">0 TAP</div>
+<div id="timeDisplay" style="color:#ffd700">10.0s</div>
+<div id="gameArea"><button id="tapBtn" onclick="tap()">TAP AKU!</button><div id="gelar" style="margin-top:12px;color:#ffd700;font-weight:bold;font-size:16px"></div></div>
+<button onclick="mulaiGame()" id="startBtn" style="background:#0ff;color:black">MULAI GAME</button>
+
+<h3 style="margin-top:20px;color:#ffd700">🏆 LEADERBOARD TOP 3 RAJA LAU</h3>
+<div id="leaderboard" style="text-align:left">Belum ada raja, jadilah yang pertama!</div>
+<button onclick="resetBoard()" style="background:#333;font-size:11px;margin-top:10px">Reset Leaderboard (Admin)</button>
 </div>
 
-<style>
-.lau-meciho { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; overflow: hidden; }
-.note { position: absolute; top: -10%; font-size: 20px; animation: jatuh linear infinite; }
-@keyframes jatuh { 0% { transform: translateY(-10vh) rotate(0deg); opacity:1 } 100% { transform: translateY(110vh) rotate(360deg); opacity:0 } }
-</style>
+<div class="card"><h3>💬 BACOT MABIR (LIVE)</h3><div id="chatBox" style="height:150px;overflow-y:auto;background:#000;text-align:left;padding:10px;border-radius:10px"></div><input id="namaChat" placeholder="Nama aja"><input id="pesanChat" placeholder="Bacot apa?"><button onclick="kirimChat()">KIRIM BACOT</button></div>
+
+<div class="card" style="border:1px dashed #ffd700"><h3>💛 SUPPORT LAU MECIHO</h3><div class="qris">FOTO QRIS KAU</div><a href="https://saweria.co/namakau" style="color:#ffd700">Saweria.co/namakau</a></div>
+<p style="margin:30px">© 2026 Lau Meciho - Mejuah-juah!</p>
 
 <script>
-const efek = document.getElementById('efek-meciho');
-const simbol = ['🎸','🎶','🎵','❄️'];
-setInterval(()=>{
-  const el = document.createElement('div');
-  el.className = 'note';
-  el.innerText = simbol[Math.floor(Math.random()*simbol.length)];
-  el.style.left = Math.random()*100+'vw';
-  el.style.animationDuration = (Math.random()*3+3)+'s';
-  efek.appendChild(el);
-  setTimeout(()=>el.remove(), 6000);
-}, 300);
-function kirimRequest(){
-  const nama = document.getElementById('nama').value || 'Anak Mabir';
-  const lagu = document.getElementById('lagu').value;
-  if(!lagu) return alert('Isi lagu nya dulu Kang!');
-  const data = JSON.parse(localStorage.getItem('request_mabir')||'[]');
-  data.unshift({nama, lagu, jam: new Date().toLocaleString()});
-  localStorage.setItem('request_mabir', JSON.stringify(data));
-  document.getElementById('lagu').value='';
-  tampilRequest();
+// MATRIX BG
+const c=document.getElementById('matrix'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+const chars="01MABIRGACOR";const drops=Array(Math.floor(c.width/14)).fill(1);
+setInterval(()=>{x.fillStyle="rgba(0,0,0,0.05)";x.fillRect(0,0,c.width,c.height);x.fillStyle="#0f0";x.font="14px monospace";drops.forEach((y,i)=>{x.fillText(chars[Math.floor(Math.random()*chars.length)],i*14,y*14);if(y*14>c.height&&Math.random()>0.975)drops[i]=0;drops[i]++})},50);
+setInterval(()=>{document.getElementById('jam').innerText=new Date().toLocaleTimeString('id-ID',{timeZone:'Asia/Jakarta'})+' WIB'},1000);
+let v=parseInt(localStorage.getItem('visit')||0)+1;localStorage.setItem('visit',v);document.getElementById('visit').innerText=v;
+const pantuns=["Mejuah-juah ula lupa ngopi, request lagu jangan lupa sawer bestie!","Erdemu bayu ke Lau Debuk, mabar sampe pagi jangan ngantuk!","Buah nangka buah kelapa, kalah main jangan ngamuk ya!","Tap tap tap makin gacor, yang gak tap auto kendor!"];
+function gantiPantun(){document.getElementById('pantun').innerText=pantuns[Math.floor(Math.random()*pantuns.length)]}gantiPantun();
+function reqLagu(){let n=document.getElementById('nama').value||'Anonim';let l=document.getElementById('lagu').value;if(!l)return alert('Isi lagu dulu Kang!');window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(`Mejuah-juah Bang! Gua ${n} request lagu ${l} di MABIR GACOR 🔥`)}`,'_blank')}
+
+// GAME + LEADERBOARD
+let score=0,time=10,timer=null,main=false;
+let board=JSON.parse(localStorage.getItem('mabir_board')||'[]');
+function tampilBoard(){
+ let box=document.getElementById('leaderboard');
+ if(board.length==0){box.innerHTML="Belum ada raja, jadilah yang pertama!";return}
+ let html=board.slice(0,3).map((b,i)=>{
+   let cls=i==0?'rank1':i==1?'rank2':'rank3';
+   let icon=i==0?'🥇':i==1?'🥈':'🥉';
+   return `<div class="${cls}">${icon} #${i+1} ${b.nama} - ${b.skor} TAP - ${b.gelar}</div>`
+ }).join('');
+ box.innerHTML=html;
 }
-function tampilRequest(){
-  const data = JSON.parse(localStorage.getItem('request_mabir')||'[]');
-  document.getElementById('list-request').innerHTML = data.map(d=>`<div style="background:#222;padding:10px;border-radius:8px;margin:6px 0;border-left:4px solid #ff6a00;"><b style="color:#ff6a00;">${d.nama}</b> request: <b>${d.lagu}</b><br><small style="opacity:0.6;">${d.jam}</small></div>`).join('');
+tampilBoard();
+function mulaiGame(){score=0;time=10;main=true;document.getElementById('scoreDisplay').innerText='0 TAP';document.getElementById('gelar').innerText='';document.getElementById('startBtn').innerText='SEDANG MAIN...';clearInterval(timer);timer=setInterval(()=>{time-=0.1;document.getElementById('timeDisplay').innerText=time.toFixed(1)+'s';if(time<=0){clearInterval(timer);main=false;selesai()}},100)}
+function tap(){if(!main)return;score++;document.getElementById('scoreDisplay').innerText=score+' TAP'}
+function selesai(){
+ let gelar=score<20?'😴💤 WEBERS NGANTUKAN 💤😴':score<50?'🌱✨ PEMULA ✨🌱':score<80?'⚔️🔥 KESATRIA 🔥⚔️':'👑💎 RAJA DARI SEGALA RAJA 💎👑';
+ document.getElementById('gelar').innerText=gelar+` (${score})`;
+ document.getElementById('startBtn').innerText='MAIN LAGI';
+ if(score>=20){
+   let nama=prompt(`GACOR KANG! Kau dapet ${score} TAP - ${gelar}\nMasuk leaderboard! Tulis nama kau:`)||'Anonim';
+   board.push({nama:nama.substring(0,12),skor:score,gelar});
+   board.sort((a,b)=>b.skor-a.skor);
+   board=board.slice(0,10);
+   localStorage.setItem('mabir_board',JSON.stringify(board));
+   tampilBoard();
+ }
 }
-tampilRequest();
+function resetBoard(){if(confirm('Reset leaderboard?')){board=[];localStorage.removeItem('mabir_board');tampilBoard()}}
+
+// CHAT
+let chats=JSON.parse(localStorage.getItem('mabir_chat')||'[]');function tampilChat(){document.getElementById('chatBox').innerHTML=chats.map(c=>`<div><b>${c.n}:</b> ${c.p}</div>`).join('')}function kirimChat(){let n=document.getElementById('namaChat').value||'Anonim';let p=document.getElementById('pesanChat').value;if(!p)return;chats.push({n,p});if(chats.length>20)chats.shift();localStorage.setItem('mabir_chat',JSON.stringify(chats));document.getElementById('pesanChat').value='';tampilChat()}tampilChat();
+function modeJoget(){document.body.classList.toggle('disko');setTimeout(()=>document.body.classList.remove('disko'),3000)}
 </script>
 </body>
 </html>
