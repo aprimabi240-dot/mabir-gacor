@@ -17,7 +17,88 @@ h1{font-family:Orbitron;font-size:32px;text-align:center;background:linear-gradi
 </style>
 </head>
 <body>
-<h1>⚡ MABIR GACOR ⚡</h1>
+<h1><!-- HERO BARU - SNOWFALL TIKTOK STYLE -->
+<section id="hero" style="position:relative; width:100%; height:100vh; min-height:600px; background:#000; overflow:hidden; display:flex; align-items:center; justify-content:center; border-bottom:2px solid #0ff;">
+  <canvas id="snowHero" style="position:absolute; top:0; left:0; width:100%; height:100%;"></canvas>
+  
+  <div style="position:relative; z-index:2; text-align:center; padding:20px;">
+    <div style="display:inline-block; border:1px solid #0ff; padding:5px 15px; border-radius:20px; font-size:12px; letter-spacing:3px; color:#0ff; box-shadow:0 0 15px #0ff; margin-bottom:20px;">NEON V8.3 | @prii.366 | LIVE</div>
+    
+    <h1 id="heroText" style="font-size:clamp(32px, 8vw, 72px); font-weight:900; margin:0; background:linear-gradient(90deg, #0ff, #f0f, #0ff); background-size:200% 100%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:glowMove 3s linear infinite; text-shadow:0 0 30px rgba(0,255,255,0.5); line-height:1.1;">
+      MABIR<br>GACOR
+    </h1>
+    
+    <p id="heroLyric" style="font-size:clamp(16px, 3vw, 22px); color:#fff; margin:20px 0; min-height:30px; font-weight:600; letter-spacing:1px; text-shadow:0 0 10px #fff;">You know it's true...</p>
+    
+    <p style="color:#aaa; max-width:500px; margin:0 auto 25px; font-size:14px;">14 Hits Karo • 51 Pantun Mabir • Shooter Neon • Jam Real-time Jakarta</p>
+    
+    <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+      <button onclick="openTab('hits')" style="background:linear-gradient(90deg,#0ff,#f0f); border:0; padding:14px 28px; border-radius:30px; font-weight:900; color:#000; cursor:pointer; box-shadow:0 0 20px #0ff;">▶ PLAY HITS</button>
+      <button onclick="openTab('game')" style="background:transparent; border:2px solid #0ff; padding:14px 28px; border-radius:30px; font-weight:900; color:#0ff; cursor:pointer; box-shadow:0 0 15px #0ff;">🎮 GAS GAME</button>
+    </div>
+    
+    <div style="margin-top:30px; display:flex; gap:20px; justify-content:center; font-size:12px; color:#0ff;">
+      <span>📍 TAPANULI</span>
+      <span id="heroClock">20:44:00</span>
+      <span>WA 082275583894</span>
+    </div>
+  </div>
+</section>
+
+<style>
+@keyframes glowMove { 0%{background-position:0%} 100%{background-position:200%} }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+</style>
+
+<script>
+// SNOWFALL + LIRIK KAYAK TIKTOK
+const canvas = document.getElementById('snowHero');
+const ctx = canvas.getContext('2d');
+function resize(){ canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+resize(); window.addEventListener('resize', resize);
+
+let flakes = Array.from({length:120}, () => ({
+  x: Math.random()*canvas.width,
+  y: Math.random()*canvas.height,
+  r: Math.random()*2+1,
+  s: Math.random()*1.5+0.5,
+  d: Math.random()*1-0.5
+}));
+
+let lyrics = ["You know it's true...", "Yeah I miss you...", "Mejuah-juah, ula lupa ngopi!", "Mabar sampe pagi jangan ngantuk!", "So, What if I call?", "MABIR GACOR TILL DAWN!", "Erdemu bayu ke Lau Debuk-debuk!", "Kalah main jangan ngamuk ya!"];
+let li = 0;
+
+function drawSnow(){
+  ctx.clearRect(0,0,canvas.width, canvas.height);
+  flakes.forEach(f=>{
+    ctx.beginPath();
+    ctx.arc(f.x, f.y, f.r, 0, Math.PI*2);
+    ctx.fillStyle = "rgba(255,255,255,0.8)";
+    ctx.fill();
+    f.y += f.s;
+    f.x += f.d;
+    if(f.y > canvas.height){ f.y = -10; f.x = Math.random()*canvas.width; }
+  });
+  requestAnimationFrame(drawSnow);
+}
+drawSnow();
+
+setInterval(()=>{
+  li = (li+1)%lyrics.length;
+  let el = document.getElementById('heroLyric');
+  el.style.opacity = 0;
+  setTimeout(()=>{
+    el.innerText = lyrics[li];
+    el.style.opacity = 1;
+  }, 300);
+}, 3000);
+
+// Jam hero
+setInterval(()=>{
+  let h = document.getElementById('heroClock');
+  if(h) h.innerText = new Date().toLocaleTimeString('id-ID',{timeZone:'Asia/Jakarta'});
+},1000);
+</script></h1>
 <p style="text-align:center">NEON V8.2 | <span id="clock"></span> | @prii.366 | WA 082275583894</p>
 <div style="text-align:center;margin:12px">
 <button class="tab active" onclick="openTab('home')">HOME</button>
